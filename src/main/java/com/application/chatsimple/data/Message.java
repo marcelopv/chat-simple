@@ -2,20 +2,20 @@ package com.application.chatsimple.data;
 
 public class Message {
 
-    private String name;
+    private String from;
     private String text;
 
     public Message(){
 
     }
 
-    public Message(String name, String text) {
-        this.name = name;
+    public Message(String from, String text) {
+        this.from = from;
         this.text = text;
     }
 
-    public String getName() {
-        return name;
+    public String getFrom() {
+        return from;
     }
 
     public String getText() {
@@ -29,13 +29,13 @@ public class Message {
 
         Message message = (Message) o;
 
-        if (name != null ? !name.equals(message.name) : message.name != null) return false;
+        if (from != null ? !from.equals(message.from) : message.from != null) return false;
         return text != null ? text.equals(message.text) : message.text == null;
     }
 
     @Override
     public int hashCode() {
-        int result = name != null ? name.hashCode() : 0;
+        int result = from != null ? from.hashCode() : 0;
         result = 31 * result + (text != null ? text.hashCode() : 0);
         return result;
     }

@@ -9,18 +9,23 @@
 
     <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="/webjars/jquery/jquery.min.js"></script>
-
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script src="/js/chat.js"></script>
 </head>
 <body>
     <div id="chat_container" class="container-fluid">
-        <form>
+        <form id="chat_form">
             <h1>Chat Simple</h1>
-            <p>Name: <input type="text" id="txt_name"></p>
+            <p>Name: <input type="text" id="txt_from"></p>
             <p>
                 Message: <input type="text" id="txt_message">
                 <input type="submit" class="btn btn-primary" id="btn_submit"/>
             </p>
         </form>
+        <div id="messages">
+
+        </div>
     </div>
 </body>
 </html>
