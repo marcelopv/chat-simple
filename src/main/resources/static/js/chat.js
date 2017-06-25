@@ -18,8 +18,11 @@ $(document).ready(function(){
         e.preventDefault();
         var from = $("#txt_from").val();
         var text = $("#txt_message").val();
-        $("#txt_message").val("");
-        stompClient.send("/app/send", {}, JSON.stringify({'from':from, 'text':text}));
+
+        if (text !== ""){
+            $("#txt_message").val("");
+            stompClient.send("/app/send", {}, JSON.stringify({'from':from, 'text':text}));
+        }
     });
 
 });
