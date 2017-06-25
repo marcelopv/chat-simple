@@ -26,7 +26,7 @@ public class ChatController {
     @SendTo("/topic/messages")
     public MessageOutput sendMessage(Message message){
         LOGGER.info("Received message from {}, with text: {}", message.getFrom(), message.getText());
-        return chatService.sendMessage(message);
+        return chatService.handleMessage(message);
     }
 
 }

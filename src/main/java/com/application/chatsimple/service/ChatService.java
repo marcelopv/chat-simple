@@ -15,7 +15,7 @@ public class ChatService {
         this.messageFormatter = messageFormatter;
     }
 
-    public MessageOutput sendMessage(Message message) {
+    public MessageOutput handleMessage(Message message) {
         return messageFormatter.format(message);
     }
 }

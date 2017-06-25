@@ -24,7 +24,7 @@ public class ChatControllerUnitTest {
         Message johnMessage = new Message("John", "Hey!");
         controller.sendMessage(johnMessage);
 
-        verify(service).sendMessage(johnMessage);
+        verify(service).handleMessage(johnMessage);
     }
 
 }

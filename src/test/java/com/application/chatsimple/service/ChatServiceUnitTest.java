@@ -23,7 +23,7 @@ public class ChatServiceUnitTest {
     public void shouldDelegateFormattingLogicWhenReceiveMessages(){
         Message johnMessage = new Message("John", "Hey!");
 
-        service.sendMessage(johnMessage);
+        service.handleMessage(johnMessage);
 
         verify(formatter).format(eq(johnMessage));
     }
