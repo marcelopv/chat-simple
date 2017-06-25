@@ -39,5 +39,5 @@ function connectWebSockets(){
 }
 
 function addMessage(message){
-    $("#messages").append("<p class=\"message\">"+message.from + ": " + message.text+"</p><p class=\"separator\"></p>");
+    $("#messages").append("<div class=\"message\"><div><strong>"+message.from+"</strong> ("+message.dateTime+"): "+message.text+"</div></div><p class=\"separator\"></p>");
 }

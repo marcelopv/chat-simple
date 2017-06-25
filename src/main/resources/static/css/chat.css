@@ -1,13 +1,13 @@
 .message {
-  position:relative;
-  padding:20px 8px;
-  margin:1em 0 3em;
-  text-align:center;
   color:#333;
   background: white;
   -webkit-border-radius:10px;
   -moz-border-radius:10px;
   border-radius:10px;
+  -webkit-flex-direction: row;
+  flex-direction:  row;
+  justify-content: flex-end;
+  overflow-wrap: break-word;
 }
 
 .separator {
@@ -17,3 +17,4 @@
 body {
     background: #d3d3d3
 }
+

@@ -3,6 +3,7 @@ package com.application.chatsimple.controller;
 import com.application.chatsimple.Application;
 import com.application.chatsimple.config.ApplicationConfigTest;
 import com.application.chatsimple.data.Message;
+import com.application.chatsimple.data.MessageOutput;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -41,7 +42,7 @@ public class ChatControllerIntegrationTest {
     @Autowired
     private WebSocketStompClient stompClient;
 
-    private CompletableFuture<Message> completableFuture = new CompletableFuture<>();
+    private CompletableFuture<MessageOutput> completableFuture = new CompletableFuture<>();
 
     @Before
     public void init(){
@@ -58,18 +59,20 @@ public class ChatControllerIntegrationTest {
         Message message = new Message("Marcelo", "Hello!");
         stompSession.send(ENDPOINT_SEND_MESSAGE, message);
 
-        Message messageResponse = completableFuture.get(10, SECONDS);
-        assertThat(messageResponse).isEqualTo(message);
+        MessageOutput messageResponse = completableFuture.get(10, SECONDS);
+        assertThat(messageResponse.getFrom()).isEqualTo(message.getFrom());
+        assertThat(messageResponse.getText()).isEqualTo(message.getText());
+        assertThat(messageResponse.getDateTime()).isNotEmpty();
     }
 
     private class CreateStompFrameHandler implements StompFrameHandler {
         @Override
         public Type getPayloadType(StompHeaders stompHeaders) {
-            return Message.class;
+            return MessageOutput.class;
         }
         @Override
         public void handleFrame(StompHeaders stompHeaders, Object o) {
-            completableFuture.complete((Message) o);
+            completableFuture.complete((MessageOutput) o);
         }
     }
 }

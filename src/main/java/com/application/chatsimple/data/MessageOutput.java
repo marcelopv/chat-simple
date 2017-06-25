@@ -1,17 +1,19 @@
 package com.application.chatsimple.data;
 
-public class Message {
+public class MessageOutput {
 
     private String from;
     private String text;
+    private String dateTime;
 
-    public Message(){
+    public MessageOutput(){
 
     }
 
-    public Message(String from, String text) {
+    public MessageOutput(String from, String text, String dateTime) {
         this.from = from;
         this.text = text;
+        this.dateTime = dateTime;
     }
 
     public String getFrom() {
@@ -20,5 +22,9 @@ public class Message {
 
     public String getText() {
         return text;
+    }
+
+    public String getDateTime() {
+        return dateTime;
     }
 }

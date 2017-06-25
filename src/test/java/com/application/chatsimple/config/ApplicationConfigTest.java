@@ -1,5 +1,7 @@
 package com.application.chatsimple.config;
 
+import com.application.chatsimple.service.ChatService;
+import com.application.chatsimple.service.MessageFormatter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.converter.MappingJackson2MessageConverter;
@@ -20,6 +22,15 @@ public class ApplicationConfigTest {
         WebSocketStompClient webSocketStompClient = new WebSocketStompClient(new SockJsClient(createTransportClient()));
         webSocketStompClient.setMessageConverter(new MappingJackson2MessageConverter());
         return webSocketStompClient;
+    }
+
+    @Bean
+    public ChatService chatService(){
+        return new ChatService(messageFormatter());
+    }
+
+    public MessageFormatter messageFormatter(){
+        return new MessageFormatter();
     }
 
     private List<Transport> createTransportClient() {
