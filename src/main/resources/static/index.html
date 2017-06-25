@@ -14,15 +14,33 @@
     <script src="/js/chat.js"></script>
 </head>
 <body>
-    <div id="chat_container" class="container-fluid">
-        <form id="chat_form">
-            <h1>Chat Simple</h1>
-            <p>Name: <input type="text" id="txt_from"></p>
-            <p>
-                Message: <input type="text" id="txt_message">
-                <input type="submit" class="btn btn-primary" id="btn_submit"/>
-            </p>
+    <div id="chat_container" class="container form-horizontal col-md-4 col-md-offset-4">
+        <h1>Chat Simple</h1>
+        <form id="enter_form" class="form-inline">
+            <p class="lead">Please, enter your name.</p>
+            <div class="form-group">
+                <label for="txt_from" class="col-sm-2 control-label">Name:</label>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" id="txt_from">
+                    <input type="button" class="btn btn-primary" id="btn_enter" value="Enter"/>
+                </div>
+            </div>
         </form>
+
+        <form id="chat_form">
+            <div class="form-group">
+                <label for="txt_message" class="col-sm-2 control-label">Message:</label>
+                <div class="col-md-10">
+                    <textarea id="txt_message" class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <input type="submit" class="btn btn-primary" id="btn_submit" value="Send"/>
+                </div>
+            </div>
+        </form>
+
         <div id="messages">
 
         </div>

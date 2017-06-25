@@ -1,12 +1,21 @@
 var stompClient = null;
 
 $(document).ready(function(){
-    connectWebSockets();
 
-    $("form").on('submit', function (e) {
+    $("#chat_form").hide();
+
+    $("#btn_enter").on('click', function (e) {
+        e.preventDefault();
+        connectWebSockets();
+        $("#enter_form").hide();
+        $("#chat_form").show();
+    });
+
+    $("#chat_form").on('submit', function (e) {
         e.preventDefault();
         var from = $("#txt_from").val();
         var text = $("#txt_message").val();
+        $("#txt_message").val("");
         stompClient.send("/app/send", {}, JSON.stringify({'from':from, 'text':text}));
     });
 
