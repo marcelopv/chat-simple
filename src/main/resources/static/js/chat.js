@@ -9,6 +9,8 @@ $(document).ready(function(){
         connectWebSockets();
         $("#enter_form").hide();
         $("#chat_form").show();
+        var name = $("#txt_from").val();
+        $("#navbar_container").append("<p class=\"navbar-text navbar-right\">Signed in as "+name+"</p>");
     });
 
     $("#chat_form").on('submit', function (e) {
