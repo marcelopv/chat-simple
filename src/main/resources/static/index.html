@@ -8,6 +8,7 @@
     <title>Chat Simple</title>
 
     <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/chat.css" rel="stylesheet">
     <script src="/webjars/jquery/jquery.min.js"></script>
     <script src="/webjars/sockjs-client/sockjs.min.js"></script>
     <script src="/webjars/stomp-websocket/stomp.min.js"></script>
@@ -31,23 +32,25 @@
             </div>
         </form>
 
+        <div id="panel_messages" class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Messages</h3>
+            </div>
+            <div id="messages" class="panel-body">
+            </div>
+        </div>
+
+
         <form id="chat_form">
             <div class="form-group">
-                <label for="txt_message" class="col-sm-2 control-label">Message:</label>
                 <div class="col-md-10">
-                    <textarea id="txt_message" class="form-control" rows="3"></textarea>
+                    <textarea id="txt_message" class="form-control" rows="2" placeholder="Type a message"></textarea>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
+                <div class="col-md-2">
                     <input type="submit" class="btn btn-primary" id="btn_submit" value="Send"/>
                 </div>
             </div>
         </form>
-
-        <div id="messages">
-
-        </div>
     </div>
 </body>
 </html>

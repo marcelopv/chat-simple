@@ -2,6 +2,7 @@ var stompClient = null;
 
 $(document).ready(function(){
 
+    $("#panel_messages").hide();
     $("#chat_form").hide();
 
     $("#btn_enter").on('click', function (e) {
@@ -29,10 +30,11 @@ function connectWebSockets(){
     stompClient.connect({}, function (frame) {
         stompClient.subscribe('/topic/messages', function (message) {
             addMessage(JSON.parse(message.body));
+            $("#panel_messages").show();
         });
     });
 }
 
 function addMessage(message){
-    $("#messages").append("<p>"+message.from + ": " + message.text+"</p>");
+    $("#messages").append("<p class=\"message\">"+message.from + ": " + message.text+"</p><p class=\"separator\"></p>");
 }

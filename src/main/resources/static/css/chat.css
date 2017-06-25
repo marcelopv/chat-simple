@@ -1,0 +1,19 @@
+.message {
+  position:relative;
+  padding:20px 8px;
+  margin:1em 0 3em;
+  text-align:center;
+  color:#333;
+  background: white;
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+}
+
+.separator {
+    border-bottom: 1px dotted #B3A9A9;
+}
+
+body {
+    background: #d3d3d3
+}
