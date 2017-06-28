@@ -10,6 +10,14 @@
   overflow-wrap: break-word;
 }
 
+#search_form ul {
+    list-style-type: none;
+}
+
+#search_form input[type=radio] {
+    margin-right: 5px;
+}
+
 .separator {
     border-bottom: 1px dotted #B3A9A9;
 }
